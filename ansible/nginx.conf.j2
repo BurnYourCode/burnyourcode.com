@@ -1,0 +1,24 @@
+server {
+    listen 80;
+    server_name {{ server_name }};
+    server_tokens off;
+    root {{ public_dir }};
+    index index.html;
+
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    location /static {
+        alias {{ static_dir }};
+        try_files $uri $uri.html $uri/ =404;
+        autoindex on;
+    }
+
+    error_page 404 /404.html;
+}
+
+server {
+    server_name www.{{ server_name }};
+    return 301 $scheme://{{ server_name }}$request_uri;
+}
