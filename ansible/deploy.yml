@@ -17,7 +17,9 @@
         group: www-data
 
     - name: build blog
-      command: "{{ hugo_binary }}" chdir=yes
+      command: "{{ hugo_binary }}"
+      args:
+        chdir: "{{ root_dir }}"
 
     - name: Update nginx config
       template: 
