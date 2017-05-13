@@ -1,0 +1,24 @@
+{{ define "content" }}
+<section>
+    <h3>5 most recent burns</h3>
+    <ul>
+        {{ range first 5 (where .Data.Pages "Section" "blog") }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a> - <span class="meta"><small><em>{{ .Date.Format "Jan 2" }}</small></em></span></li>
+        {{ end }}
+    </ul>
+</section>
+
+<section>
+    {{ $bestPosts := len (where (where .Data.Pages "Section" "blog") "Params.best" true) }}
+    {{ if gt $bestPosts 0 }}
+    <h3>best articles</h3>
+    <ul>
+        {{ range where .Site.Pages "Params.best" true }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a> - <span class="meta"><small><em>{{ .Date.Format "Jan 2, '06" }}</small></em></span></li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</section>
+
+{{ end }}
+

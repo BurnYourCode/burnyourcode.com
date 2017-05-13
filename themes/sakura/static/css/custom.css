@@ -1,0 +1,37 @@
+body {
+    max-width: 800px;
+    padding: 15px;
+    font-family: 'Merriweather', serif;
+}
+
+.site-title {
+    font-size: 1.75em;
+    margin-bottom: 0px;
+}
+
+.site-title a:hover {
+    text-decoration: none;
+    border: 0px;
+    font-style: italic;
+}
+
+.site-header .meta {
+    margin-top: 0px;
+}
+
+.site-main {
+    max-width: 684px;
+    margin: auto;
+}
+
+.meta {
+    color: #af6363;
+}
+
+.post .post-title {
+    margin-bottom: 0px;
+}
+
+.post .meta {
+    margin-top: 0px;
+}

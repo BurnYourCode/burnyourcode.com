@@ -1,0 +1,42 @@
+baseURL: http://burnyourcode.com/
+metaDataFormat: yaml
+languageCode: en-us
+title: "Burn your code"
+theme: sakura
+PygmentsCodeFences: true
+pygmentsstyle: "friendly"
+
+permalinks:
+    page: /:slug/
+
+taxonomies:
+    tag: "tags"
+    category: "categories"
+
+params:
+    keywords:
+        - computer
+        - developer
+        - programming
+        - blog
+        - mitesh shah
+        - multiverse
+    description: "Burning code is good. Let me tell you how."
+    author: ox
+    author_link: https://oxal.org
+    social:
+        github: oxalorg
+        twitter: oxalorg
+        twitter_domain: "burnyourcode.com"
+        facebook_admin: 100000855963383
+
+# googleAnalytics: ""
+# disqusShortname: ""
+
+menu:
+    headers:
+        - name: archive
+          url: /blog/
+        - name: about
+          url: /about/
+...
