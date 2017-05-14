@@ -1,2 +1,7 @@
 # This doesn't work
 # http://* https://:splat
+#
+# This should work (according to awesome help
+# from chrim @netlify
+http://www.burnyourcode.com/* https://www.burnyourcode.com/:splat 301!
+
