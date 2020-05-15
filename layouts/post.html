@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+<article class="post">
+    <header>
+        <h1 class="post-title">{{ title }}</h1>
+        <p class="meta">Posted by </p>
+    </header>
+    {{ content }}
+    <footer> <small> <em>
+        <address>Posted by <a rel="author" href="{{ author_link }}">{{ author }}</a></address>
+        <time datetime="{{ date }}">{{ date | datetimeformat('%b %d, %Y') }}</time>
+    </em> </small> </footer>
+</article>
+{% endblock %}
