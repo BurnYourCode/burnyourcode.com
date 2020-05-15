@@ -1,17 +1,16 @@
-SRV_PATH=/srv/burnyourcode.com
-HUGO=$(SRV_PATH)/hugo-linux64
+.PHONY: build run deploy synconly
 
-.PHONY: deploy_rsync deploy_git sakura
-help: ## Print this help text
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+build:
+	rm -rf _build
+	python3 genox.py
 
-deploy_rsync: ## Build locally and rsync to server
-	./hugo && rsync -avz --exclude='.git/' --delete . ark:$(SRV_PATH)
+run:
+	python3 server.py _build
 
-deploy_git: ## git based deployment
-	ssh -t ark "cd ark:$(SRV_PATH)  &&\
-		git pull && \
-		$(HUGO)"
+deploy: build
+	cd deployment && \
+		ansible-playbook -l live -i hosts deploy.yml --ask-become-pass
 
-sakura:
-	cp /cabinet/lab/sakura.css/css/sakura-vader.css themes/sakura/static/css/sakura.css
+synconly: build
+	cd deployment && \
+		ansible-playbook -l live -i hosts deploy.yml --tags=synconly

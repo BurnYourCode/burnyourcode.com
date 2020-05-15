@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<article class="page">
+    <h1>{{ title }}</h1>
+    {{ content }}
+    {% if has_index %}
+      {% for year, posts in index_group.items() %}
+        <h4>{{ year }}</h4>
+        <ul>
+        {% for item in posts %}
+          <li>
+            <a href="{{ item.rel_url }}">{{ item.title }}</a>
+            on <time datetime="{{ date }}">{{ item.date | datetimeformat('%b %d, %Y') }}</time>
+          </li>
+        {% endfor %}
+        </ul>
+      {% endfor %}
+    {% endif %}
+</article>
+{% endblock %}

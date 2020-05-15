@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body %}
+<section>
+    <h3>5 most recent burns</h3>
+    {{ index_group }}
+    <ul>
+        {{ index_list }}
+        {% for item in index_list %}
+        <li>
+            <a href="{{ item.rel_url }}">{{ item.title }}</a> -
+            <small class="meta">
+                <em>
+                    <time datetime="{{ item.date }}">{{ item.date | datetimeformat('%b %d, %Y') }}</time>
+                </em>
+            </small>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section>
+    <h3>best articles</h3>
+    <ul>
+    </ul>
+</section>
+{% endblock %}

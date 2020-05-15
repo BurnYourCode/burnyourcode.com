@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<!-- ============================================================================================-->
+<!-- Using the minimal css framework: http://github.com/oxalorg/sakura -->
+<!-- JOIN THE DARK SIDE -->
+<!-- ============================================================================================-->
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="keywords" content="{{ site.keywords }}" />
+    <meta name="author" content="{{ author }}" />
+    <link rel="icon" type="image/png" href="/static/favicon.ico" sizes="196x196" />
+    <!-- <link href="{}" rel="alternate" type="application/rss+xml" title="{}" /> -->
+
+    <!-- Assets -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site_baseurl }}/static/css/normalize.css">
+    <!-- <link rel="stylesheet" href="{{ site_baseurl }}/static/css/sakura-vader.css" async> -->
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" type="text/css">
+    <link rel="stylesheet" href="{{ site_baseurl }}/static/css/custom.css" async>
+    <style>
+      body {
+        font-family: 'Merriweather', serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Barlow', sans-serif;
+        font-weight: 700;
+      }
+    </style>
+
+
+    {#
+    {% include "partials/opengraph.html" %}
+    {% include "partials/google_news.html" %}
+    {% include "partials/schema.html" %}
+    {% include "partials/twitter_cards.html" %}
+    #}
+
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title"><!--em>func</em--> <a href="/">Burn your<span class="meta">(</span><em>code</em><span class="meta">)</span></a> {</h1>
+    <p class="meta">/* <a href="/about/">about</a> | <a href="/blog/">archive</a> */
+    </p>
+  </header>
+
+  <section class="site-main">
+    <section class="content">
+      {%- block body -%}{{ content }}{%- endblock -%}
+    </section>
+  </section>
+
+  <footer class="site-footer">
+    <h1>}</h1>
+  </footer>
+
+  {% include "partials/analytics.html" %}
+
+</body>
+</html>

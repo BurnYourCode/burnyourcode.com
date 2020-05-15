@@ -1,0 +1,30 @@
+input_dir: 'content'
+output_dir: '_build'
+layout_dir: 'layouts'
+static_dir: 'static'
+
+md_ext:
+  - '.md'
+  - '.mkd'
+  - '.markdown'
+
+defaults:
+  layout: 'post'
+  title: 'burn your code'
+  draft: False
+  author: 'ox'
+  author_link: 'https://oxal.org'
+
+site:
+  title: 'BurnYourCode'
+  ga_id: 'UA-63732371-1'
+  google_analytics: "UA-101913473-1"
+  name: "ox's ark"
+  description: "Burning code is good. Let me tell you how."
+  keywords: "Burn,Your,Code"
+  baseurl: /
+  social:
+    github: oxalorg
+    twitter: oxalorg
+    twitter_domain: "burnyourcode.com"
+    facebook_admin: 100000855963383

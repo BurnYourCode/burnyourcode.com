@@ -1,5 +1,6 @@
 ---
-date: 2017-05-10T19:14:40+05:30
+date: 2017-05-10
+datetime: 2017-05-10T19:14:40+05:30
 tags:
   - burn
 title: lets burn it
