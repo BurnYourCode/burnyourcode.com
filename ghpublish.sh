@@ -26,7 +26,7 @@ echo "Removing existing files"
 rm -rf _build/*
 
 echo "Generating site"
-make build
+python3 genox.py
 
 echo "Updating gh-pages branch"
 cd _build && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
