@@ -5,17 +5,17 @@
     <h1>{{ title }}</h1>
     {{ content }}
     {% if has_index %}
-      {% for year, posts in index_group.items() %}
-        <h4>{{ year }}</h4>
-        <ul>
+    {% for year, posts in index_group.items() %}
+    <h4>{{ year }}</h4>
+    <ul>
         {% for item in posts %}
-          <li>
+        <li>
             <a href="{{ item.rel_url }}">{{ item.title }}</a>
             on <time datetime="{{ date }}">{{ item.date | datetimeformat('%b %d, %Y') }}</time>
-          </li>
+        </li>
         {% endfor %}
-        </ul>
-      {% endfor %}
+    </ul>
+    {% endfor %}
     {% endif %}
 </article>
 {% endblock %}
