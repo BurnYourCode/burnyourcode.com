@@ -104,7 +104,13 @@ def genox_ignored(relpath):
 def rebuild_tree_hardlinks(src, dst, static_dir, ignore_ext):
     os.makedirs(dst, exist_ok=True)
     # shutil.rmtree(dst)
-    shutil.copytree(src, dst, copy_function=os.link, ignore=shutil.ignore_patterns(*['*' + ext for ext in ignore_ext]))
+    for item in os.listdir(src):
+        s = os.path.join(src, item)
+        d = os.path.join(dst, item)
+        if os.path.isdir(s):
+            shutil.copytree(s, d, copy_function=os.link, ignore=shutil.ignore_patterns(*['*' + ext for ext in ignore_ext]))
+        else:
+            shutil.copy2(s, d)
     shutil.copytree(static_dir, os.path.join(dst, static_dir), copy_function=os.link)
 
 
